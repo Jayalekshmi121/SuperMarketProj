@@ -1,38 +1,52 @@
 package com.obsqura.testscripts;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 
+
+import Utilities.ScreenShotUtility;
 import Utilities.WaitUtility;
 import constants.Constants;
 
 public class Base {
 	public WebDriver driver;
+	public ScreenShotUtility scrshot;
 	public Properties prop,prop1; 
 	FileInputStream fs,fs1;
+	
 	@BeforeMethod(alwaysRun = true)
-	public void initialiseBrowser() 
+	
+	@Parameters("browser")
+	public void initialiseBrowser(String browser) throws Exception 
 	{
 		prop=new Properties();
-		try 
+		try
 		{
 			fs = new FileInputStream(System.getProperty("user.dir") +constants.Constants.CONFIGfILE);
-        } 
+
+		}
 		catch (Exception e) 
 		{
 			// TODO: handle exception
 		}
-		try 
+		
+		
+		try
 		{
 			prop.load(fs);
-		} catch (Exception e) 
+		} 
+		catch (Exception e)
 		{
 			// TODO: handle exception
 		}
@@ -40,34 +54,62 @@ public class Base {
 
 		try
 		{
-			fs = new FileInputStream(System.getProperty("user.dir") +constants.Constants.TESTDATAFILE);
-        } 
+		 	fs = new FileInputStream(System.getProperty("user.dir") +constants.Constants.TESTDATAFILE);
+		}
+		catch (Exception e)
+		{
+			// TODO: handle exception
+		}
+		try
+		{
+			prop1.load(fs);
+		}
 		catch (Exception e) 
 		{
 			// TODO: handle exception
 		}
-		try 
-		{
-             prop1.load(fs);
-		} 
-		catch (Exception e) 
-		{
-			// TODO: handle exception
-		}
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + Constants.CHROMEDRIVERFILE);
-			ChromeOptions options = new ChromeOptions();  options.addArguments("--remote-allow-origins=*");
-			driver = new ChromeDriver(options);
-			driver.get(prop.getProperty("url"));
-			WaitUtility.implicitWait(driver);
-			WaitUtility.pageLoadWait(driver);
+if(browser.equalsIgnoreCase("firefox")){
+			
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") +constants.Constants.FIREFOXDRIVERFILE);
+			driver = new FirefoxDriver();
+			}
+			
+			else if(browser.equalsIgnoreCase("chrome")){
+			
+				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+Constants.CHROMEDRIVERFILE);
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--remote-allow-origins=*");
+				driver = new ChromeDriver(options);
+			}
+			
+			else if(browser.equalsIgnoreCase("Edge")){
+			
+			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir") +constants.Constants.EDGEDRIVERFILE);
+			
+			driver = new EdgeDriver();
+			}
+			else{
+			throw new Exception("Browser is not correct");
+			}
+		//driver initialization
+		//if the browser is edge key will be - webdriver.edge.driver
+		
+		driver.get(prop.getProperty("url"));
+		WaitUtility.implicitWait(driver);
+		driver.manage().window().maximize();
+		WaitUtility.pageLoadWait(driver);
 	}
-	@Test
-	public void testdemo() {		
-	}
+	
 	@AfterMethod(alwaysRun = true)
-	public void afterTest() 
-	{
-		driver.quit();
+	public void browserQuit(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			scrshot = new ScreenShotUtility();
+			scrshot.getScreenShot(driver, iTestResult.getName());
+		}
+
+
+	driver.quit();
 	}
+	
 
 }
