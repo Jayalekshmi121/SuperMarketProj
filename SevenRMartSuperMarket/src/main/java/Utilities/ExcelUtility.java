@@ -27,7 +27,7 @@ public class ExcelUtility {
 	ExcelRows.add(row.getCell(j).getStringCellValue());
 	}
 	}
-	// f.close();
+	
 	return ExcelRows;
 	}
 
@@ -36,14 +36,14 @@ public class ExcelUtility {
 	wb = new XSSFWorkbook(f);
 	sh = wb.getSheet(sheet);
 	ArrayList<String> ExcelRows = new ArrayList<String>();
-	// int rowCount = sh.getLastRowNum() - sh.getFirstRowNum();
+	
 
 	Row row = sh.getRow(rownum);
 	int cellCount = row.getLastCellNum();
 	for (int j = 0; j < cellCount; j++) {
 	ExcelRows.add(row.getCell(j).getStringCellValue());
 	}
-	// f.close();
+	
 	return ExcelRows;
 	}
 	public static String getString(int i, int j, String file_path, String sheet) throws IOException {

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class LoginPagePage 
 {
@@ -25,6 +26,7 @@ public class LoginPagePage
 	
 	public boolean isUserNameFieldDisplayed() 
 	{
+		//userNameField.isDisplayed();
 		return PageUtility.isElementDisplayed(userNameField);
 	}
 	public void enterValueInUserNameField(String username) 

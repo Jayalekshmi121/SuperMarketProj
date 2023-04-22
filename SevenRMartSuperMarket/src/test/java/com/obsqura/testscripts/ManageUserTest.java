@@ -17,25 +17,25 @@ public class ManageUserTest extends Base
 	ManageUserPage manageUserPage;
 	LoginPageTest loginPageTest;
 	@Test
-	public void verifyManageUserPageNavigation() throws IOException 
+	public void verifyManageUserPageNavigationFromDashBoard() throws IOException 
 	{
 		String urlofPage = ExcelUtility.getString(3, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
-		SelectCategoryListObj.navigateMenu("Manage Users");
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(0, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		manageUserPage=new ManageUserPage(driver);
 		manageUserPage.clickOnManageUser();
 		assertEquals(urlofPage,manageUserPage.getUrlOfPage(),"Urls are not same");
 	}
 	@Test
-	public void verifyStatusButtonsInListUserPage() throws IOException 
+	public void verifyStatusChangeWhenInactiveButtonInListUserPageisClicked() throws IOException 
 	{
 		String urlFromListPage = ExcelUtility.getString(4, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
-		SelectCategoryListObj.navigateMenu("Manage Users");
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(0, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		manageUserPage=new ManageUserPage(driver);
 		manageUserPage.clickOnManageUser();
 		manageUserPage.clickOnInactiveButton();

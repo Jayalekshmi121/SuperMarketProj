@@ -19,7 +19,7 @@ import Utilities.ExtentReportUtility;
 public class Listeners extends Base implements ITestListener {
 ExtentTest test;
 
-ExtentReports extent=ExtentReportUtility.createExtentReports();
+ExtentReports extent=ExtentReportUtility.getReportObject();
 ThreadLocal<ExtentTest> extentTest =new ThreadLocal<ExtentTest>();
 
 

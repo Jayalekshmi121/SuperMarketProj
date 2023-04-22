@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -18,6 +19,7 @@ import org.testng.annotations.Parameters;
 import Utilities.ScreenShotUtility;
 import Utilities.WaitUtility;
 import constants.Constants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Base {
 	public WebDriver driver;
@@ -38,17 +40,15 @@ public class Base {
 		}
 		catch (Exception e) 
 		{
-			// TODO: handle exception
+			
 		}
-		
-		
 		try
 		{
 			prop.load(fs);
 		} 
 		catch (Exception e)
 		{
-			// TODO: handle exception
+			
 		}
 		prop1=new Properties();
 
@@ -58,7 +58,7 @@ public class Base {
 		}
 		catch (Exception e)
 		{
-			// TODO: handle exception
+			
 		}
 		try
 		{
@@ -66,34 +66,28 @@ public class Base {
 		}
 		catch (Exception e) 
 		{
-			// TODO: handle exception
+			
 		}
-if(browser.equalsIgnoreCase("firefox")){
+		if(browser.equalsIgnoreCase("firefox")){
 			
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") +constants.Constants.FIREFOXDRIVERFILE);
-			driver = new FirefoxDriver();
+				driver=WebDriverManager.firefoxdriver().create();
 			}
-			
 			else if(browser.equalsIgnoreCase("chrome")){
-			
-				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+Constants.CHROMEDRIVERFILE);
-				ChromeOptions options = new ChromeOptions();
-				options.addArguments("--remote-allow-origins=*");
-				driver = new ChromeDriver(options);
+				ChromeOptions chromeoptions = new ChromeOptions();
+				chromeoptions.addArguments("--remote-allow-origins=*");
+				WebDriverManager.chromedriver().create();
+				driver = new ChromeDriver(chromeoptions);
 			}
-			
 			else if(browser.equalsIgnoreCase("Edge")){
 			
-			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir") +constants.Constants.EDGEDRIVERFILE);
-			
-			driver = new EdgeDriver();
+				EdgeOptions edgeOptions = new EdgeOptions();
+				edgeOptions.addArguments("--remote-allow-origins=*");
+				WebDriverManager.edgedriver().create();
+				driver = new EdgeDriver(edgeOptions);
 			}
 			else{
 			throw new Exception("Browser is not correct");
 			}
-		//driver initialization
-		//if the browser is edge key will be - webdriver.edge.driver
-		
 		driver.get(prop.getProperty("url"));
 		WaitUtility.implicitWait(driver);
 		driver.manage().window().maximize();
@@ -106,8 +100,6 @@ if(browser.equalsIgnoreCase("firefox")){
 			scrshot = new ScreenShotUtility();
 			scrshot.getScreenShot(driver, iTestResult.getName());
 		}
-
-
 	driver.quit();
 	}
 	
