@@ -28,6 +28,8 @@ public class ManageSliderPage {
 	WebElement editButton;
 	@FindBy(xpath="//button[@name='update']")
 	WebElement updateButton;
+	@FindBy(xpath="//i[@class='fas fa-trash-alt']")
+	WebElement deleteButton;
 	
 	public void clickOnManageSlider() {
 		PageUtility.clickOnElement(manageSlider);
@@ -50,6 +52,7 @@ public class ManageSliderPage {
 	public void clickOnUpdateButton() {
 		PageUtility.clickOnElement(updateButton);
 	}
-	
-
+	public void clickOnDeleteButton() {
+		PageUtility.clickOnElement(deleteButton);
+	}
 }

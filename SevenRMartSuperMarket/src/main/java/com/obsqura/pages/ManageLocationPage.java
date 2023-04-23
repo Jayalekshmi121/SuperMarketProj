@@ -32,6 +32,8 @@ public class ManageLocationPage {
 	WebElement editButton;
 	@FindBy(xpath="//button[@name='update']")
 	WebElement updateButton;
+	@FindBy(xpath="//a[@class='btn btn-rounded btn-primary']")
+	WebElement searchButton;
 	
 	public void clickOnManageLocation() {
 		PageUtility.clickOnElement(manageLocation);
@@ -59,5 +61,8 @@ public class ManageLocationPage {
 	}
 	public void clickOnUpdateButton() {
 		PageUtility.clickOnElement(updateButton);
+	}
+	public boolean getLocationOfNewButtonAndSearchButton() {
+		return PageUtility.greaterComparisonX(searchButton, newButton);
 	}
 }

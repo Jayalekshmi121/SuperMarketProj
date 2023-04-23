@@ -7,7 +7,7 @@
   <test thread-count="5" name="testng">
 <parameter name="browser" value="chrome"></parameter>
     <classes>
- 		<class name="com.obsqura.testscripts.ManageLocationTest"/>
+ 		<class name="com.obsqura.testscripts.ManageProductTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

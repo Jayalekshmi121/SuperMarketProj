@@ -26,7 +26,7 @@ public class ManageSliderTest extends Base {
 		manageSliderPage.clickOnNewButton();
 		manageSliderPage.enterValueInLinkField(link);
 		manageSliderPage.clickOnSaveButton();
-		assertTrue(manageSliderPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
+		assertTrue(manageSliderPage.alertMessageFieldDisplayed(),"Slider not added successfully");
 	}
 	@Test
 	public void verifyEditButtonFunctionalityInManageSliderPage() throws IOException {
@@ -39,8 +39,19 @@ public class ManageSliderTest extends Base {
 		manageSliderPage.clickOnEditButton();
 		manageSliderPage.enterValueInLinkField(link);
 		manageSliderPage.clickOnUpdateButton();
-		assertTrue(manageSliderPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
+		assertTrue(manageSliderPage.alertMessageFieldDisplayed(),"Slider not edited successfully");
 		
+	}
+	@Test
+	public void verifyDeleteFunctionality() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(3, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		manageSliderPage=new ManageSliderPage(driver);
+		manageSliderPage.clickOnDeleteButton();
+		driver.switchTo().alert().accept();
+		assertTrue(manageSliderPage.alertMessageFieldDisplayed(),"Slider not deleted successfully");
 	}
 
 }

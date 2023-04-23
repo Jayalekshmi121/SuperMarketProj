@@ -52,8 +52,16 @@ public class ManageLocationTest extends Base {
 		manageLocationPage.clickOnEditButton();
 		manageLocationPage.enterValueInLocationField(locationName);
 		manageLocationPage.clickOnUpdateButton();
-		assertTrue(manageLocationPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
+		assertTrue(manageLocationPage.alertMessageFieldDisplayed(),"Location is not Updated Successfully");
 	}
-	
+	@Test
+	public void verifyIfNewButtonIsAllignedBeforeSearchButton() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(2, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		manageLocationPage=new ManageLocationPage(driver);
+		assertTrue(manageLocationPage.getLocationOfNewButtonAndSearchButton(),"New Button is not alligned before search button");
+	}	
 
 }

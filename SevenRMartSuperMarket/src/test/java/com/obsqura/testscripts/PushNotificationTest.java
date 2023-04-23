@@ -31,7 +31,6 @@ public class PushNotificationTest extends Base
 	}
 	@Test
 	public void sendingNotificationByEnteringValueInFieldsOfPushNotificationPage() throws IOException {
-		String urlofPage = ExcelUtility.getString(8, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		String enterTitle=ExcelUtility.getString(5, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		String description=ExcelUtility.getString(6, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		loginPageTest=new LoginPageTest(driver);
@@ -46,6 +45,15 @@ public class PushNotificationTest extends Base
 		pushNotificationPage.enterValueInDescriptionField(description);
 		assertTrue(pushNotificationPage.isSendButtonEnabled(),"Send button is not enabled");
 		pushNotificationPage.clickOnSendButton();
-		assertEquals(urlofPage,pushNotificationPage.getUrlOfPushNotificationPage(),"Urls are not same");
+		assertTrue(pushNotificationPage.alertMessageFieldDisplayed(),"Push notification Message not send successfully");
+	}
+	@Test
+	public void verifyIfSendButtonIsAllignedBelowDescriptionField() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(1, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		pushNotificationPage=new PushNotificationPage(driver);
+		assertTrue(pushNotificationPage.getLocationOfDescriptionField(),"Send button is not alligned below Description field");
 	}
 }

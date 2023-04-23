@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -35,6 +36,34 @@ public class PageUtility
 		public static void selectDropdownbyText(WebElement element, String text) {
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
+		}
+		public static void getLocationOfElementX1(WebElement element ) {
+			Point location=element.getLocation();
+			int elementLocationX1=location.getX();
+		}
+		public static void getLocationOfElementX2(WebElement element ) {
+			Point location=element.getLocation();
+			int elementLocationX2=location.getX();
+		}
+		public static boolean greaterComparisonX(WebElement element1, WebElement element2) {
+			Point location1=element1.getLocation();
+			Point location2=element2.getLocation();
+			boolean greaterLocation;
+			return greaterLocation=location1.getX()>location2.getX();
+		}
+		public static void getLocationOfElementY1(WebElement element ) {
+			Point location=element.getLocation();
+			int elementLocationY1=location.getY();
+		}
+		public static void getLocationOfElementY2(WebElement element ) {
+			Point location=element.getLocation();
+			int elementLocationY2=location.getY();
+		}
+		public static boolean greaterComparisonY(WebElement element1, WebElement element2) {
+			Point location1=element1.getLocation();
+			Point location2=element2.getLocation();
+			boolean greaterLocation;
+			return greaterLocation=location1.getY()>location2.getY();
 		}
 		public static void selectDropdownbyIndex(WebElement element, int index) {
 		Select select = new Select(element);

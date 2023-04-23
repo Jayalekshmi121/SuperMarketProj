@@ -19,8 +19,11 @@ public class ManageUserPage
 	WebElement manageUser;
 	@FindBy(xpath="//span[text()='Inactive']")
 	WebElement inactiveButton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
-	WebElement alertMessage;
+	@FindBy(xpath="//div[@class='col-sm-12']")
+	WebElement alertMessageField;
+	@FindBy(xpath="//i[@class='fas fa-trash-alt']")
+	WebElement deleteButton;
+	
 	
 	public void clickOnManageUser() {
 		PageUtility.clickOnElement(manageUser);
@@ -33,6 +36,12 @@ public class ManageUserPage
 	}
 	public String getUrlOfListUserPage() {
 		return driver.getCurrentUrl();
+	}
+	public void clickOnDeleteButton() {
+		PageUtility.clickOnElement(deleteButton);
+	}
+	public boolean alertMessageFieldDisplayed() {
+		return alertMessageField.isDisplayed();
 	}
 
 }

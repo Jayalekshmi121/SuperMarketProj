@@ -1,6 +1,7 @@
 package com.obsqura.testscripts;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
 
@@ -40,6 +41,17 @@ public class ManageUserTest extends Base
 		manageUserPage.clickOnManageUser();
 		manageUserPage.clickOnInactiveButton();
 		assertEquals(urlFromListPage,manageUserPage.getUrlOfListUserPage(),"Messages are not same");
+	}
+	@Test
+	public void verifyDeleteButtonFunctionalityInManageUserPage() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(0, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		manageUserPage=new ManageUserPage(driver);
+		manageUserPage.clickOnDeleteButton();
+		driver.switchTo().alert().accept();
+		assertTrue(manageUserPage.alertMessageFieldDisplayed(),"User is not deleted successfully");
 	}
 	
 }
