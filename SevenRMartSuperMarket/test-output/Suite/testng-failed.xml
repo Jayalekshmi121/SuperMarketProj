@@ -7,13 +7,13 @@
   <test thread-count="5" name="testng(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.obsqura.testscripts.DeliveryBoyTest">
+      <class name="com.obsqura.testscripts.MobileSliderTest">
         <methods>
-          <include name="verifyFunctionalityOfEditButtonInDeliveryBoyPage"/>
+          <include name="verifyMobileSliderAlertNotification"/>
           <include name="initialiseBrowser"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- com.obsqura.testscripts.DeliveryBoyTest -->
+      </class> <!-- com.obsqura.testscripts.MobileSliderTest -->
     </classes>
   </test> <!-- testng(failed) -->
 </suite> <!-- Failed suite [Suite] -->

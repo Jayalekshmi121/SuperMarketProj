@@ -1,5 +1,7 @@
 package com.obsqura.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,18 +26,53 @@ public class ManageProductPage {
 	WebElement newButton;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-primary']")
 	WebElement searchButton;
+	@FindBy(xpath="//button[@class='btn btn-xs btn-success']")
+	WebElement ProductCodeButtonElement;
+	@FindBy(xpath="//input[@placeholder='Title']")
+	WebElement TitleFieldElement;
+	@FindBy(xpath="//button[@name='Search']")
+	WebElement FilterSearchButtonElement;
 	
-	public void clickOnManageProduct() {
+	public ManageProductPage clickOnManageProduct() {
 		PageUtility.clickOnElement(manageProduct);
+		return this;
 	}
-	public void clickOnDeleteButton() {
+	public ManageProductPage clickOnDeleteButton() {
 		PageUtility.clickOnElement(deleteButton);
+		return this;
 	}
 	public boolean isAlertFieldDisplayed() {
 		return PageUtility.isElementDisplayed(alertField);
 	}
 	public boolean getLocationOfNewAndSearchButton() {
 		return PageUtility.greaterComparisonX(searchButton, newButton);
+	}
+	public boolean  productCodeButtonIsDisplayed()
+	{
+		return PageUtility.isElementDisplayed(ProductCodeButtonElement);
+	}
+	public boolean checkTitleIsPresent(String Title)
+	{
+		List<WebElement> rows=PageUtility.findRowElements(TitleFieldElement);
+		for(WebElement row:rows)
+		{
+	     	if(row.getText().contains(Title))
+	     		return  true;
+		}
+		return  false;
+	}
+	public ManageProductPage enterValueInTitleField(String title)
+    {
+    	PageUtility.enterText(TitleFieldElement, title);
+    	return this;
+    }
+	public ManageProductPage clickOnSearchButton() {
+		PageUtility.clickOnElement(searchButton);
+		return this;
+	}
+	public ManageProductPage clickOnFilterSearchButton() {
+		PageUtility.clickOnElement(FilterSearchButtonElement);
+		return this;
 	}
 
 }

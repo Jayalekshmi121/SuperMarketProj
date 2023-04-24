@@ -14,18 +14,17 @@ import Utilities.ExcelUtility;
 public class DeliveryBoyTest extends Base {
 	DeliveryBoyPage deliveryBoyPage;
 	LoginPageTest loginPageTest;
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void verifyFunctionalityOfShowDetailsButtonInDeliveryBoyPage() throws IOException {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(6, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		deliveryBoyPage=new DeliveryBoyPage(driver);
-		deliveryBoyPage.clickOnManageDeliveryBoy();
-		deliveryBoyPage.clickOnShowDetailsButton();
+		deliveryBoyPage.clickOnManageDeliveryBoy().clickOnShowDetailsButton();
 		assertTrue(deliveryBoyPage.isPasswordFieldDisplayed(),"PasswordField is not displayed");
 	}
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void verifyFunctionalityOfDeleteButtonInDeliveryBoyPage() throws IOException {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
@@ -36,7 +35,7 @@ public class DeliveryBoyTest extends Base {
 		driver.switchTo().alert().accept();
 		assertTrue(deliveryBoyPage.isAlertFieldDisplayed(),"Delivery Boy information is not deleted successfully");
 	}
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void verifyAllignmentOfSearchButtonAndResetButton() throws IOException {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
@@ -44,6 +43,16 @@ public class DeliveryBoyTest extends Base {
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(6, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		deliveryBoyPage=new DeliveryBoyPage(driver);
 		assertTrue(deliveryBoyPage.getLocationOfSearchButtonAndResetButton(),"Reset Button is not alligned after Search button");
+	}
+	@Test(retryAnalyzer = Retry.class)
+	public void verifyStatusChangeByClickingStatusButton() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(6, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		deliveryBoyPage=new DeliveryBoyPage(driver);
+		deliveryBoyPage.clickOnStatus();
+		assertTrue(deliveryBoyPage.isAlertFieldDisplayed(),"Status not changed successfully");
 	}
 
 }

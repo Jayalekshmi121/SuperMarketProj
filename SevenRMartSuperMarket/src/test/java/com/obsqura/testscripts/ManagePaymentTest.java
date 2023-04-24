@@ -14,7 +14,7 @@ import Utilities.ExcelUtility;
 public class ManagePaymentTest extends Base {
 	ManagePaymentPage managePaymentPage;
 	LoginPageTest loginPageTest;
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void verifyEditButtonFunctionalityInManagePayementPage() throws IOException {
 		String title=ExcelUtility.getString(16, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		loginPageTest=new LoginPageTest(driver);
@@ -22,20 +22,17 @@ public class ManagePaymentTest extends Base {
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		managePaymentPage=new ManagePaymentPage(driver);
-		managePaymentPage.clickOnManageLocation();
-		managePaymentPage.clickOnEditButton();
-		managePaymentPage.enterValueInTitleField(title);
-		managePaymentPage.clickOnUpdateButton();
+		managePaymentPage.clickOnManagePayment().clickOnEditButton().enterValueInTitleField(title).clickOnUpdateButton();
 		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
 	}
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void verifyStatusOfButtonsInStatusField() throws IOException {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		managePaymentPage=new ManagePaymentPage(driver);
-		managePaymentPage.clickOnStatusButton();
+		managePaymentPage.clickOnStatus();
 		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
 		
 	}

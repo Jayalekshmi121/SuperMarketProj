@@ -14,7 +14,8 @@ import Utilities.ExcelUtility;
 public class ManageSliderTest extends Base {
 	ManageSliderPage manageSliderPage;
 	LoginPageTest loginPageTest;
-	@Test
+	
+	@Test(retryAnalyzer = Retry.class)
 	public void addingSliderByEnteringValueInLinkField() throws IOException {
 		String link=ExcelUtility.getString(15, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		loginPageTest=new LoginPageTest(driver);
@@ -22,13 +23,10 @@ public class ManageSliderTest extends Base {
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(3, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		manageSliderPage=new ManageSliderPage(driver);
-		manageSliderPage.clickOnManageSlider();
-		manageSliderPage.clickOnNewButton();
-		manageSliderPage.enterValueInLinkField(link);
-		manageSliderPage.clickOnSaveButton();
+		manageSliderPage.clickOnManageSlider().clickOnNewButton().enterValueInLinkField(link).clickOnSaveButton();
 		assertTrue(manageSliderPage.alertMessageFieldDisplayed(),"Slider not added successfully");
 	}
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void verifyEditButtonFunctionalityInManageSliderPage() throws IOException {
 		String link=ExcelUtility.getString(17, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		loginPageTest=new LoginPageTest(driver);
@@ -36,13 +34,10 @@ public class ManageSliderTest extends Base {
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(3, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		manageSliderPage=new ManageSliderPage(driver);
-		manageSliderPage.clickOnEditButton();
-		manageSliderPage.enterValueInLinkField(link);
-		manageSliderPage.clickOnUpdateButton();
+		manageSliderPage.clickOnEditButton().enterValueInLinkField(link).clickOnUpdateButton();
 		assertTrue(manageSliderPage.alertMessageFieldDisplayed(),"Slider not edited successfully");
-		
 	}
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void verifyDeleteFunctionality() throws IOException {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();

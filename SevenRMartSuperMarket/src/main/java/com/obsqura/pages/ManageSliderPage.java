@@ -31,28 +31,35 @@ public class ManageSliderPage {
 	@FindBy(xpath="//i[@class='fas fa-trash-alt']")
 	WebElement deleteButton;
 	
-	public void clickOnManageSlider() {
+	public ManageSliderPage clickOnManageSlider() {
 		PageUtility.clickOnElement(manageSlider);
+		return this;
 	}
-	public void clickOnNewButton() {
+	public ManageSliderPage clickOnNewButton() {
 		PageUtility.clickOnElement(newButton);
+		return this;
 	}
-	public void enterValueInLinkField(String link) {
+	public ManageSliderPage enterValueInLinkField(String link) {
 		PageUtility.enterText(linkField, link);
+		return this;
 	}
-	public void clickOnSaveButton() {
+	public ManageSliderPage clickOnSaveButton() {
 		PageUtility.clickOnElement(saveButton);
+		return this;
 	}
 	public boolean alertMessageFieldDisplayed() {
 		return alertMessageField.isDisplayed();
 	}
-	public void clickOnEditButton() {
+	public ManageSliderPage clickOnEditButton() {
 		PageUtility.clickOnElement(editButton);
+		return this;
 	}
-	public void clickOnUpdateButton() {
+	public ManageSliderPage clickOnUpdateButton() {
 		PageUtility.clickOnElement(updateButton);
+		return this;
 	}
-	public void clickOnDeleteButton() {
+	public ManageSliderPage clickOnDeleteButton() {
 		PageUtility.clickOnElement(deleteButton);
+		return this;
 	}
 }

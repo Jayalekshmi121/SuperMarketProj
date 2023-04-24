@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class ManagePaymentPage {
 	WebDriver driver;
@@ -26,24 +27,44 @@ public class ManagePaymentPage {
 	WebElement alertMessageField;
 	@FindBy(xpath="//span[@class='badge bg-warning']")
 	WebElement statusButton;
+	@FindBy(xpath="//a[@role='button']")
+	WebElement StatusButtonElement;
 	
-	public void clickOnManageLocation() {
+	public ManagePaymentPage clickOnManagePayment() {
 		PageUtility.clickOnElement(managePayment);
+		return this;
 	}
-	public void clickOnEditButton() {
+	public ManagePaymentPage clickOnEditButton() {
 		PageUtility.clickOnElement(editButton);
+		return this;
 	}
-	public void enterValueInTitleField(String title) {
+	public ManagePaymentPage enterValueInTitleField(String title) {
 		PageUtility.enterText(titleField, title);
+		return this;
 	}
-	public void clickOnUpdateButton() {
+	public ManagePaymentPage clickOnUpdateButton() {
 		PageUtility.clickOnElement(updateButton);
+		return this;
 	}
 	public boolean alertMessageFieldDisplayed() {
 		return alertMessageField.isDisplayed();
 	}
-	public void clickOnStatusButton() {
+	public ManagePaymentPage clickOnStatusButton() {
 		PageUtility.clickOnElement(statusButton);
+		return this;
+	}
+	public String getBackGroundColorOfStatusButton()
+	{
+		return PageUtility.getCssValueOfElement(StatusButtonElement, "background-color");
+	}
+	
+	public ManagePaymentPage clickOnStatus()
+	{
+		PageUtility.getAttributeElementOfHref(StatusButtonElement);
+		WaitUtility.waitForElementClickable(driver, StatusButtonElement);
+		getBackGroundColorOfStatusButton().equals(StatusButtonElement);
+		PageUtility.clickOnElement(StatusButtonElement);
+		return this;
 	}
 
 }

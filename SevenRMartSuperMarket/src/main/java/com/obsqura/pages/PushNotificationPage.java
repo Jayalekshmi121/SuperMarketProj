@@ -26,8 +26,9 @@ public class PushNotificationPage {
 	@FindBy(xpath="//div[@class='col-sm-12']")
 	WebElement alertMessageField;
 	
-	public void clickOnPushNotification() {
+	public PushNotificationPage clickOnPushNotification() {
 		PageUtility.clickOnElement(pushNotification);
+		return this;
 	}
 	public boolean isTitleFieldDisplayed() {
 		return PageUtility.isElementDisplayed(titleField);
@@ -35,19 +36,22 @@ public class PushNotificationPage {
 	public boolean isDescriptionFieldDisplayed() {
 		return PageUtility.isElementDisplayed(descriptionField);
 	}
-	public void enterValueInTitleField(String enterTitle) {
+	public PushNotificationPage enterValueInTitleField(String enterTitle) {
 		PageUtility.enterText(titleField, enterTitle);
+		return this;
 	}
-	public void enterValueInDescriptionField(String description) {
+	public PushNotificationPage enterValueInDescriptionField(String description) {
 		PageUtility.enterText(descriptionField, description);
+		return this;
 	}
 	public boolean isSendButtonEnabled() 
 	{
 		return PageUtility.isElementEnabled(sendButton);
 	}
-	public void clickOnSendButton() 
+	public PushNotificationPage clickOnSendButton() 
 	{
 		PageUtility.clickOnElement(sendButton);
+		return this;
 	}
 	public boolean alertMessageFieldDisplayed() {
 		return alertMessageField.isDisplayed();

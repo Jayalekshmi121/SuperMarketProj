@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class DeliveryBoyPage {
 	WebDriver driver;
@@ -34,28 +35,35 @@ public class DeliveryBoyPage {
 	WebElement searchButton;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-warning']")
 	WebElement resetButton;
+	@FindBy(xpath="//a[@role='button']")
+	WebElement StatusButtonElement;
 	
-	
-	public void clickOnManageDeliveryBoy() {
+	public DeliveryBoyPage clickOnManageDeliveryBoy() {
 		PageUtility.clickOnElement(manageDeliveryBoy);
+		return this;
 	}
-	public void clickOnShowDetailsButton() {
+	public DeliveryBoyPage clickOnShowDetailsButton() {
 		PageUtility.clickOnElement(showDetailsButton);
+		return this;
 	}
 	public boolean isPasswordFieldDisplayed() {
 		return PageUtility.isElementDisplayed(passwordField);
 	}
-	public void clickOnEditButton() {
+	public DeliveryBoyPage clickOnEditButton() {
 		PageUtility.clickOnElement(editButton);
+		return this;
 	}
-	public void editValueInNameField(String name) {
+	public DeliveryBoyPage editValueInNameField(String name) {
 		PageUtility.enterText(nameField, name);
+		return this;
 	}
-	public void clickOnUpdateButton() {
+	public DeliveryBoyPage clickOnUpdateButton() {
 		PageUtility.clickOnElement(updateButton);
+		return this;
 	}
-	public void clickOnDeleteButton() {
+	public DeliveryBoyPage clickOnDeleteButton() {
 		PageUtility.clickOnElement(deleteButton);
+		return this;
 	}
 	public boolean isAlertFieldDisplayed() {
 		return PageUtility.isElementDisplayed(alertField);
@@ -64,5 +72,18 @@ public class DeliveryBoyPage {
 		return PageUtility.greaterComparisonX(resetButton, searchButton);
 	}
 	
+	public String getBackGroundColorOfStatusButton()
+	{
+		return PageUtility.getCssValueOfElement(StatusButtonElement, "background-color");
+	}
+	
+	public DeliveryBoyPage clickOnStatus()
+	{
+		PageUtility.getAttributeElementOfHref(StatusButtonElement);
+		WaitUtility.waitForElementClickable(driver, StatusButtonElement);
+		getBackGroundColorOfStatusButton().equals(StatusButtonElement);
+		PageUtility.clickOnElement(StatusButtonElement);
+		return this;
+	}
 
 }

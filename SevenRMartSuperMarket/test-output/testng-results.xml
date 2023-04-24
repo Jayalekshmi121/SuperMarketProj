@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-23T17:40:46 IST" name="Suite" finished-at="2023-04-23T17:41:01 IST" duration-ms="14875">
+  <suite started-at="2023-04-24T21:56:25 IST" name="Suite" finished-at="2023-04-24T21:56:44 IST" duration-ms="19151">
     <groups>
     </groups>
-    <test started-at="2023-04-23T17:40:46 IST" name="testng" finished-at="2023-04-23T17:41:01 IST" duration-ms="14875">
+    <test started-at="2023-04-24T21:56:25 IST" name="testng" finished-at="2023-04-24T21:56:44 IST" duration-ms="19151">
       <class name="com.obsqura.testscripts.ManageProductTest">
-        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:com.obsqura.testscripts.ManageProductTest@3e08ff24]" started-at="2023-04-23T17:40:46 IST" name="initialiseBrowser" finished-at="2023-04-23T17:40:55 IST" duration-ms="8444" status="PASS">
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394]" started-at="2023-04-24T21:56:25 IST" name="initialiseBrowser" finished-at="2023-04-24T21:56:34 IST" duration-ms="9523" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,15 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialiseBrowser -->
-        <test-method signature="verifyAllignmentOfNewButtonAndSearchButton()[pri:0, instance:com.obsqura.testscripts.ManageProductTest@3e08ff24]" started-at="2023-04-23T17:40:55 IST" name="verifyAllignmentOfNewButtonAndSearchButton" finished-at="2023-04-23T17:41:00 IST" duration-ms="5157" status="PASS">
+        <test-method signature="verifySearchFunctionalityInManageProductPage()[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394]" started-at="2023-04-24T21:56:34 IST" name="verifySearchFunctionalityInManageProductPage" finished-at="2023-04-24T21:56:43 IST" duration-ms="8174" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAllignmentOfNewButtonAndSearchButton -->
-        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:com.obsqura.testscripts.ManageProductTest@3e08ff24]" started-at="2023-04-23T17:41:00 IST" name="browserQuit" finished-at="2023-04-23T17:41:01 IST" duration-ms="1200" status="PASS">
+        </test-method> <!-- verifySearchFunctionalityInManageProductPage -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394]" started-at="2023-04-24T21:56:43 IST" name="browserQuit" finished-at="2023-04-24T21:56:44 IST" duration-ms="1340" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyAllignmentOfNewButtonAndSearchButton status=SUCCESS method=ManageProductTest.verifyAllignmentOfNewButtonAndSearchButton()[pri:0, instance:com.obsqura.testscripts.ManageProductTest@3e08ff24] output={null}]]]>
+                <![CDATA[[TestResult name=verifySearchFunctionalityInManageProductPage status=SUCCESS method=ManageProductTest.verifySearchFunctionalityInManageProductPage()[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394] output={null}]]]>
               </value>
             </param>
           </params>

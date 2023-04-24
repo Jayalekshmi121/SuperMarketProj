@@ -23,14 +23,17 @@ public class MobileSliderPage {
 	@FindBy(xpath="//div[@class='col-sm-12']")
 	WebElement alertMessageField;
 	
-	public void clickOnMobileSlider() {
+	public MobileSliderPage clickOnMobileSlider() {
 		PageUtility.clickOnElement(mobileSlider);
+		return this;
 	}
-	public void clickOnNewButton() {
+	public MobileSliderPage clickOnNewButton() {
 		PageUtility.clickOnElement(newButton);
+		return this;
 	}
-	public void clickOnSaveButton() {
+	public MobileSliderPage clickOnSaveButton() {
 		PageUtility.clickOnElement(saveButton);
+		return this;
 	}
 	public boolean alertMessageFieldDisplayed() {
 		return alertMessageField.isDisplayed();

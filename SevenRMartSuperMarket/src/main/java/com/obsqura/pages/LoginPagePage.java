@@ -26,28 +26,30 @@ public class LoginPagePage
 	
 	public boolean isUserNameFieldDisplayed() 
 	{
-		//userNameField.isDisplayed();
 		return PageUtility.isElementDisplayed(userNameField);
 	}
-	public void enterValueInUserNameField(String username) 
+	public LoginPagePage enterValueInUserNameField(String username) 
 	{
 		PageUtility.enterText(userNameField, username);
+		return this;
 	}
 	public boolean isPasswordFieldDisplayed() 
 	{
 		return PageUtility.isElementDisplayed(passwordField);
 	}
-	public void enterValueInPasswordField(String password) 
+	public LoginPagePage enterValueInPasswordField(String password) 
 	{
 		PageUtility.enterText(passwordField, password);
+		return this;
 	}
 	public boolean isSignInButtonEnabled() 
 	{
 		return PageUtility.isElementEnabled(signInButton);
 	}
-	public void clickOnSignInButton() 
+	public LoginPagePage clickOnSignInButton() 
 	{
 		PageUtility.clickOnElement(signInButton);
+		return this;
 	}
 	public String getTitleOfPage() {
 		return driver.getTitle();

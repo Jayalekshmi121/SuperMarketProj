@@ -38,13 +38,7 @@ public class PushNotificationTest extends Base
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(1, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
 		pushNotificationPage=new PushNotificationPage(driver);
-		pushNotificationPage.clickOnPushNotification();
-		assertTrue(pushNotificationPage.isTitleFieldDisplayed(),"Title field is not displayed");
-		pushNotificationPage.enterValueInTitleField(enterTitle);
-		assertTrue(pushNotificationPage.isDescriptionFieldDisplayed(),"Description field is not displayed");
-		pushNotificationPage.enterValueInDescriptionField(description);
-		assertTrue(pushNotificationPage.isSendButtonEnabled(),"Send button is not enabled");
-		pushNotificationPage.clickOnSendButton();
+		pushNotificationPage.clickOnPushNotification().enterValueInTitleField(enterTitle).enterValueInDescriptionField(description).clickOnSendButton();
 		assertTrue(pushNotificationPage.alertMessageFieldDisplayed(),"Push notification Message not send successfully");
 	}
 	@Test

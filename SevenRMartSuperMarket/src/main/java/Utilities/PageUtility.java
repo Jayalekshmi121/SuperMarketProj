@@ -3,6 +3,7 @@ package Utilities;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -65,6 +66,18 @@ public class PageUtility
 			boolean greaterLocation;
 			return greaterLocation=location1.getY()>location2.getY();
 		}
+		public static List<WebElement> findRowElements(WebElement element)
+		{
+		return element.findElements(By.tagName("tr"));
+		}
+		public static String getAttributeElementOfHref(WebElement element)
+		{
+			return element.getAttribute("href");
+		}
+		public static String getCssValueOfElement(WebElement element,String propertyName)
+        {
+        	return element.getCssValue(propertyName);
+        }
 		public static void selectDropdownbyIndex(WebElement element, int index) {
 		Select select = new Select(element);
 		select.selectByIndex(index);

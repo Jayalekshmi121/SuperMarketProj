@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class ManageLocationPage {
 	WebDriver driver;
@@ -34,35 +35,58 @@ public class ManageLocationPage {
 	WebElement updateButton;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-primary']")
 	WebElement searchButton;
+	@FindBy(xpath="//a[@role='button']")
+	WebElement StatusButtonElement;
 	
-	public void clickOnManageLocation() {
+	public ManageLocationPage clickOnManageLocation() {
 		PageUtility.clickOnElement(manageLocation);
+		return this;
 	}
-	public void clickOnNewButton() {
+	public ManageLocationPage clickOnNewButton() {
 		PageUtility.clickOnElement(newButton);
+		return this;
 	}
-	public void enterValueInLocationField(String locationName) {
+	public ManageLocationPage enterValueInLocationField(String locationName) {
 		PageUtility.enterText(locationField, locationName);
+		return this;
 	}
-	public void enterValueInDeliveryChargeField(String deliveryCharge) {
+	public ManageLocationPage enterValueInDeliveryChargeField(String deliveryCharge) {
 		PageUtility.enterText(deliveryChargeField, deliveryCharge);
+		return this;
 	}
-	public void clickOnSaveButton() {
+	public ManageLocationPage clickOnSaveButton() {
 		PageUtility.clickOnElement(saveButton);
+		return this;
 	}
 	public boolean alertMessageFieldDisplayed() {
 		return alertMessageField.isDisplayed();
 	}
-	public void clickOnStatusButton() {
+	public ManageLocationPage clickOnStatusButton() {
 		PageUtility.clickOnElement(statusButton);
+		return this;
 	}
-	public void clickOnEditButton() {
+	public ManageLocationPage clickOnEditButton() {
 		PageUtility.clickOnElement(editButton);
+		return this;
 	}
-	public void clickOnUpdateButton() {
+	public ManageLocationPage clickOnUpdateButton() {
 		PageUtility.clickOnElement(updateButton);
+		return this;
 	}
 	public boolean getLocationOfNewButtonAndSearchButton() {
 		return PageUtility.greaterComparisonX(searchButton, newButton);
+	}
+	public String getBackGroundColorOfStatusButton()
+	{
+		return PageUtility.getCssValueOfElement(StatusButtonElement, "background-color");
+	}
+	
+	public ManageLocationPage clickOnStatus()
+	{
+		PageUtility.getAttributeElementOfHref(StatusButtonElement);
+		WaitUtility.waitForElementClickable(driver, StatusButtonElement);
+		getBackGroundColorOfStatusButton().equals(StatusButtonElement);
+		PageUtility.clickOnElement(StatusButtonElement);
+		return this;
 	}
 }
