@@ -23,7 +23,7 @@ public class PushNotificationPage {
 	WebElement descriptionField;
 	@FindBy(xpath="//button[@type='submit']")
 	WebElement sendButton;
-	@FindBy(xpath="//div[@class='col-sm-12']")
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	WebElement alertMessageField;
 	
 	public PushNotificationPage clickOnPushNotification() {

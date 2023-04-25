@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-24T21:56:25 IST" name="Suite" finished-at="2023-04-24T21:56:44 IST" duration-ms="19151">
+  <suite started-at="2023-04-25T23:32:36 IST" name="Suite" finished-at="2023-04-25T23:33:09 IST" duration-ms="33031">
     <groups>
     </groups>
-    <test started-at="2023-04-24T21:56:25 IST" name="testng" finished-at="2023-04-24T21:56:44 IST" duration-ms="19151">
-      <class name="com.obsqura.testscripts.ManageProductTest">
-        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394]" started-at="2023-04-24T21:56:25 IST" name="initialiseBrowser" finished-at="2023-04-24T21:56:34 IST" duration-ms="9523" status="PASS">
+    <test started-at="2023-04-25T23:32:36 IST" name="testng" finished-at="2023-04-25T23:33:09 IST" duration-ms="33031">
+      <class name="com.obsqura.testscripts.PushNotificationTest">
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:32:36 IST" name="initialiseBrowser" finished-at="2023-04-25T23:32:44 IST" duration-ms="7834" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,22 +18,74 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialiseBrowser -->
-        <test-method signature="verifySearchFunctionalityInManageProductPage()[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394]" started-at="2023-04-24T21:56:34 IST" name="verifySearchFunctionalityInManageProductPage" finished-at="2023-04-24T21:56:43 IST" duration-ms="8174" status="PASS">
+        <test-method signature="sendingNotificationByEnteringValueInFieldsOfPushNotificationPage()[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:32:44 IST" name="sendingNotificationByEnteringValueInFieldsOfPushNotificationPage" finished-at="2023-04-25T23:32:51 IST" duration-ms="7256" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifySearchFunctionalityInManageProductPage -->
-        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394]" started-at="2023-04-24T21:56:43 IST" name="browserQuit" finished-at="2023-04-24T21:56:44 IST" duration-ms="1340" status="PASS">
+        </test-method> <!-- sendingNotificationByEnteringValueInFieldsOfPushNotificationPage -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:32:51 IST" name="browserQuit" finished-at="2023-04-25T23:32:52 IST" duration-ms="993" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifySearchFunctionalityInManageProductPage status=SUCCESS method=ManageProductTest.verifySearchFunctionalityInManageProductPage()[pri:0, instance:com.obsqura.testscripts.ManageProductTest@2bdd8394] output={null}]]]>
+                <![CDATA[[TestResult name=sendingNotificationByEnteringValueInFieldsOfPushNotificationPage status=SUCCESS method=PushNotificationTest.sendingNotificationByEnteringValueInFieldsOfPushNotificationPage()[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserQuit -->
-      </class> <!-- com.obsqura.testscripts.ManageProductTest -->
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:32:52 IST" name="initialiseBrowser" finished-at="2023-04-25T23:32:57 IST" duration-ms="4090" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialiseBrowser -->
+        <test-method signature="verifyIfSendButtonIsAllignedBelowDescriptionField()[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:32:57 IST" name="verifyIfSendButtonIsAllignedBelowDescriptionField" finished-at="2023-04-25T23:32:59 IST" duration-ms="2840" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyIfSendButtonIsAllignedBelowDescriptionField -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:32:59 IST" name="browserQuit" finished-at="2023-04-25T23:33:00 IST" duration-ms="935" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyIfSendButtonIsAllignedBelowDescriptionField status=SUCCESS method=PushNotificationTest.verifyIfSendButtonIsAllignedBelowDescriptionField()[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:33:00 IST" name="initialiseBrowser" finished-at="2023-04-25T23:33:04 IST" duration-ms="3719" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialiseBrowser -->
+        <test-method signature="verifyPushNotificationPageNavigationFromDashBoard()[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:33:04 IST" name="verifyPushNotificationPageNavigationFromDashBoard" finished-at="2023-04-25T23:33:08 IST" duration-ms="4200" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPushNotificationPageNavigationFromDashBoard -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22]" started-at="2023-04-25T23:33:08 IST" name="browserQuit" finished-at="2023-04-25T23:33:09 IST" duration-ms="1055" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyPushNotificationPageNavigationFromDashBoard status=SUCCESS method=PushNotificationTest.verifyPushNotificationPageNavigationFromDashBoard()[pri:0, instance:com.obsqura.testscripts.PushNotificationTest@68746f22] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+      </class> <!-- com.obsqura.testscripts.PushNotificationTest -->
     </test> <!-- testng -->
   </suite> <!-- Suite -->
 </testng-results>

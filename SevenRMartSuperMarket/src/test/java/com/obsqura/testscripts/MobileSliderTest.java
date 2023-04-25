@@ -11,16 +11,17 @@ import com.obsqura.pages.MobileSliderPage;
 import com.obsqura.pages.SelectCategoryList;
 
 import Utilities.ExcelUtility;
+import Utilities.UtilityFile;
 
 public class MobileSliderTest extends Base {
 	MobileSliderPage mobileSliderPage;
 	LoginPageTest loginPageTest;
-	@Test(retryAnalyzer = Retry.class)
+	@Test(retryAnalyzer = generaltests.Retry.class)
 	public void verifyMobileSliderAlertNotification() throws IOException {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
-		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(4, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(4, 0, UtilityFile.excelPath, "menu"));
 		mobileSliderPage=new MobileSliderPage(driver);
 		mobileSliderPage.clickOnMobileSlider().clickOnNewButton().clickOnSaveButton();
 		assertTrue(mobileSliderPage.alertMessageFieldDisplayed(),"Alert Message Field is not displayed");

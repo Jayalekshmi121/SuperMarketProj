@@ -10,27 +10,28 @@ import com.obsqura.pages.ManagePaymentPage;
 import com.obsqura.pages.SelectCategoryList;
 
 import Utilities.ExcelUtility;
+import Utilities.UtilityFile;
 
 public class ManagePaymentTest extends Base {
 	ManagePaymentPage managePaymentPage;
 	LoginPageTest loginPageTest;
-	@Test(retryAnalyzer = Retry.class)
+	@Test(retryAnalyzer = generaltests.Retry.class)
 	public void verifyEditButtonFunctionalityInManagePayementPage() throws IOException {
-		String title=ExcelUtility.getString(16, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
+		String title=ExcelUtility.getString(16, 1, UtilityFile.excelPath, "login");
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
-		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, UtilityFile.excelPath, "menu"));
 		managePaymentPage=new ManagePaymentPage(driver);
 		managePaymentPage.clickOnManagePayment().clickOnEditButton().enterValueInTitleField(title).clickOnUpdateButton();
 		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
 	}
-	@Test(retryAnalyzer = Retry.class)
+	@Test(retryAnalyzer = generaltests.Retry.class)
 	public void verifyStatusOfButtonsInStatusField() throws IOException {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
-		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "menu"));
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, UtilityFile.excelPath, "menu"));
 		managePaymentPage=new ManagePaymentPage(driver);
 		managePaymentPage.clickOnStatus();
 		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
