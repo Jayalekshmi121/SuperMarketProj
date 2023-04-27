@@ -17,6 +17,7 @@ import org.testng.annotations.Parameters;
 
 
 import Utilities.ScreenShotUtility;
+import Utilities.UtilityFile;
 import Utilities.WaitUtility;
 import constants.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -35,7 +36,7 @@ public class Base {
 		prop=new Properties();
 		try
 		{
-			fs = new FileInputStream(System.getProperty("user.dir") +constants.Constants.CONFIGfILE);
+			fs = new FileInputStream(UtilityFile.urlPath);
 
 		}
 		catch (Exception e) 

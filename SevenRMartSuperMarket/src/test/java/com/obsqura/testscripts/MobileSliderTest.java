@@ -24,7 +24,47 @@ public class MobileSliderTest extends Base {
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(4, 0, UtilityFile.excelPath, "menu"));
 		mobileSliderPage=new MobileSliderPage(driver);
 		mobileSliderPage.clickOnMobileSlider().clickOnNewButton().clickOnSaveButton();
-		assertTrue(mobileSliderPage.alertMessageFieldDisplayed(),"Alert Message Field is not displayed");
+		assertTrue(mobileSliderPage.alertMessageFieldDisplayed(),"Slider not added successfully");
+	}
+	@Test(retryAnalyzer = generaltests.Retry.class)
+	public void verifyFunctionalityofDeleteButtonInMobileSlider() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(4, 0, UtilityFile.excelPath, "menu"));
+		mobileSliderPage=new MobileSliderPage(driver);
+		mobileSliderPage.clickOnDeleteButton();
+		driver.switchTo().alert().accept();
+		assertTrue(mobileSliderPage.alertMessageFieldDisplayed(),"Slider not deleted successfully");
+	}
+	@Test(retryAnalyzer = generaltests.Retry.class)
+	public void verifyFunctionalityOfEditButtonInMobileSlider() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(4, 0, UtilityFile.excelPath, "menu"));
+		mobileSliderPage=new MobileSliderPage(driver);
+		mobileSliderPage.clickOnEditButton().clickOnUpdateButton();
+		assertTrue(mobileSliderPage.alertMessageFieldDisplayed(),"Slider not edited successfully");
+	}
+	@Test(retryAnalyzer = generaltests.Retry.class)
+	public void verifyFunctionalityOfStatusButtoninMobileSlier() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(4, 0, UtilityFile.excelPath, "menu"));
+		mobileSliderPage=new MobileSliderPage(driver);
+		mobileSliderPage.clickOnStatus();
+		assertTrue(mobileSliderPage.alertMessageFieldDisplayed(),"Slider not edited successfully");
+	}
+	@Test(retryAnalyzer = generaltests.Retry.class)
+	public void verifyAllignmentOfNewAndResetButton() throws IOException {
+		loginPageTest=new LoginPageTest(driver);
+		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
+		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
+		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(4, 0, UtilityFile.excelPath, "menu"));
+		mobileSliderPage=new MobileSliderPage(driver);
+		assertTrue(mobileSliderPage.getLocationOfNewButtonAndResetButton(),"Reset button is not alligned after New button");
 	}
 
 }

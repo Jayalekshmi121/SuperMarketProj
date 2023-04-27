@@ -7,9 +7,10 @@
   <test thread-count="5" name="Test">
 <parameter name="browser" value="chrome"></parameter>
     <classes>
-      <class name="com.obsqura.testscripts.LoginPageTest">
+      <class name="com.obsqura.testscripts.PushNotificationTest">
 		<methods>
-			<include name="verifyingLoginPage"></include>
+			<include name="verifyPushNotificationPageNavigationFromDashBoard"></include>
+			<include name="sendingNotificationByEnteringValueInFieldsOfPushNotificationPage"></include>
 		</methods>
 			
       </class>

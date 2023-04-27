@@ -24,7 +24,7 @@ public class ManagePaymentTest extends Base {
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, UtilityFile.excelPath, "menu"));
 		managePaymentPage=new ManagePaymentPage(driver);
 		managePaymentPage.clickOnManagePayment().clickOnEditButton().enterValueInTitleField(title).clickOnUpdateButton();
-		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
+		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Payment not edited successfully");
 	}
 	@Test(retryAnalyzer = generaltests.Retry.class)
 	public void verifyStatusOfButtonsInStatusField() throws IOException {
@@ -34,7 +34,7 @@ public class ManagePaymentTest extends Base {
 		SelectCategoryListObj.navigateMenu(ExcelUtility.getString(5, 0, UtilityFile.excelPath, "menu"));
 		managePaymentPage=new ManagePaymentPage(driver);
 		managePaymentPage.clickOnStatus();
-		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Alert Message Field not displayed");
+		assertTrue(managePaymentPage.alertMessageFieldDisplayed(),"Status not changed successfully");
 		
 	}
 

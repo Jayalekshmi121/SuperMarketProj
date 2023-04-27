@@ -1,6 +1,7 @@
 package com.obsqura.testscripts;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class LoginTest  extends Base
 		String titleofDashboard = ExcelUtility.getString(0, 1, UtilityFile.excelPath, "login");
 		loginPagePage = new LoginPagePage(driver);
 		loginPagePage.enterValueInUserNameField(username).enterValueInPasswordField(password).clickOnSignInButton();
-		assertEquals(titleofDashboard,loginPagePage.getTitleOfPage(),"Titles are not same");
+		assertNotEquals(titleofDashboard,loginPagePage.getTitleOfPage(),"Titles are not same");
 	}
 	@DataProvider(name="LoginProvider")
 	 public Object[][] getDataFromDataprovider(){
@@ -49,7 +50,7 @@ public class LoginTest  extends Base
 		String password=ExcelUtility.getString(10, 1, UtilityFile.excelPath, "login");
 		loginPagePage = new LoginPagePage(driver);
 		loginPagePage.enterValueInUserNameField(username).enterValueInPasswordField(password).clickOnSignInButton();
-		assertEquals(titleofDashboard,loginPagePage.getTitleOfPage(),"Titles are not same");
+		assertNotEquals(titleofDashboard,loginPagePage.getTitleOfPage(),"Titles are not same");
 	}
 	@Test(retryAnalyzer = generaltests.Retry.class)
 	public void verifyingLoginPageWithInValidUserNameAndInValidPassword() throws IOException {
@@ -58,6 +59,6 @@ public class LoginTest  extends Base
 		String password=ExcelUtility.getString(12, 1, UtilityFile.excelPath, "login");
 		loginPagePage = new LoginPagePage(driver);
 		loginPagePage.enterValueInUserNameField(username).enterValueInPasswordField(password).clickOnSignInButton();
-		assertEquals(titleofDashboard,loginPagePage.getTitleOfPage(),"Titles are not same");
+		assertNotEquals(titleofDashboard,loginPagePage.getTitleOfPage(),"Titles are not same");
 	}
 }
