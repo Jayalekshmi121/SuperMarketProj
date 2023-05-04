@@ -1,14 +1,9 @@
 package com.obsqura.testscripts;
 
 import static org.testng.Assert.assertTrue;
-
-import java.io.IOException;
-
 import org.testng.annotations.Test;
-
 import com.obsqura.pages.DeliveryBoyPage;
 import com.obsqura.pages.SelectCategoryList;
-
 import Utilities.ExcelUtility;
 import Utilities.UtilityFile;
 
@@ -16,7 +11,7 @@ public class DeliveryBoyTest extends Base {
 	DeliveryBoyPage deliveryBoyPage;
 	LoginPageTest loginPageTest;
 	@Test(retryAnalyzer = generaltests.Retry.class)
-	public void verifyFunctionalityOfShowDetailsButtonInDeliveryBoyPage() throws IOException {
+	public void verifyFunctionalityOfShowDetailsButtonInDeliveryBoyPage()  {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
@@ -26,7 +21,7 @@ public class DeliveryBoyTest extends Base {
 		assertTrue(deliveryBoyPage.isPasswordFieldDisplayed(),"PasswordField is not displayed");
 	}
 	@Test(retryAnalyzer = generaltests.Retry.class)
-	public void verifyFunctionalityOfDeleteButtonInDeliveryBoyPage() throws IOException {
+	public void verifyFunctionalityOfDeleteButtonInDeliveryBoyPage()  {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
@@ -37,7 +32,7 @@ public class DeliveryBoyTest extends Base {
 		assertTrue(deliveryBoyPage.isAlertFieldDisplayed(),"Delivery Boy information is not deleted successfully");
 	}
 	@Test(retryAnalyzer = generaltests.Retry.class)
-	public void verifyAllignmentOfSearchButtonAndResetButton() throws IOException {
+	public void verifyAllignmentOfSearchButtonAndResetButton()  {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);
@@ -46,7 +41,7 @@ public class DeliveryBoyTest extends Base {
 		assertTrue(deliveryBoyPage.getLocationOfSearchButtonAndResetButton(),"Reset Button is not alligned after Search button");
 	}
 	@Test(retryAnalyzer = generaltests.Retry.class)
-	public void verifyStatusChangeByClickingStatusButton() throws IOException {
+	public void verifyStatusChangeByClickingStatusButton()  {
 		loginPageTest=new LoginPageTest(driver);
 		loginPageTest.verifyingLoginPageWithValidUserNameAndValidPassword();
 		SelectCategoryList SelectCategoryListObj=new SelectCategoryList(driver);

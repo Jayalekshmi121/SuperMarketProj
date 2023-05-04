@@ -1,15 +1,9 @@
 package com.obsqura.testscripts;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-
 import com.obsqura.pages.LoginPagePage;
-
 import Utilities.ExcelUtility;
 
 public class LoginPageTest extends Base
@@ -20,7 +14,7 @@ public class LoginPageTest extends Base
 		this.driver=driver;	
 	}
 	@Test
-	public void verifyingLoginPageWithValidUserNameAndValidPassword() throws IOException 
+	public void verifyingLoginPageWithValidUserNameAndValidPassword() 
 	{
 		String titleofDashboard = ExcelUtility.getString(0, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
 		String username = ExcelUtility.getString(1, 1, System.getProperty("user.dir")+constants.Constants.EXCELFILE, "login");
